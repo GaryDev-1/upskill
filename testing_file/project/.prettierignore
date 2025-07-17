@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Production builds
+dist/
+build/
+
+# Generated files
+*.min.js
+*.min.css
+
+# Package files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Cache directories
+.cache/
+.vite/
+
+# Log files
+*.log
+
+# Environment files
+.env*
+
+# Public assets (don't format)
+public/
+
+# Legacy files (until migrated)
+*.html
