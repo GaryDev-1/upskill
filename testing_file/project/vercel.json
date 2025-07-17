@@ -1,6 +1,6 @@
 {
   "name": "upskill-frontend",
-  "version": 2,
+  "version": 1,
   "builds": [
     {
       "src": "testing_file/project/package.json",
@@ -16,11 +16,6 @@
       "dest": "/testing_file/project/$1"
     }
   ],
-  "functions": {
-    "testing_file/project/src/**": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "buildCommand": "cd testing_file/project && npm run build",
   "outputDirectory": "testing_file/project/dist",
   "installCommand": "cd testing_file/project && npm install"
