@@ -14,7 +14,7 @@ import { AnimatePresence } from 'framer-motion';
 import { queryClient } from './services/config/queryClient';
 
 // Layout & Components
-import Layout from './components/Layout';
+import Layout from './components/layout';
 import { ProtectedRoute } from './components/auth/ProtectedRoute';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
 import { PageLoading } from './components/ui/Loading';
