@@ -55,6 +55,7 @@ app.use(
         "http://localhost:3001",
         "http://localhost:5173",
         "http://localhost:4173",
+        "https://upskill-nu-ten.vercel.app",
         process.env.FRONTEND_URL,
         process.env.ADMIN_URL,
       ].filter(Boolean);
@@ -183,7 +184,7 @@ app.get("/api", (req, res) => {
     success: true,
     message: "UpSkill API Documentation",
     version: "1.0.0",
-    documentation: process.env.API_DOCS_URL || "https://docs.upskill.dev",
+    documentation: process.env.API_DOCS_URL || "https://upskill-api-yl2i.onrender.com/api",
     endpoints: {
       authentication: {
         base: "/api/auth",
