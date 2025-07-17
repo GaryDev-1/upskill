@@ -323,18 +323,21 @@ app.get('/health', (req, res) => {
 });
 
 app.get("/health-render", async (req, res) => {
-  const { checkDBHealth } = require("./config/database");
-  const dbHealth = await checkDBHealth();
-
-  res.json({
-    success: true,
-    status: "healthy",
-    timestamp: new Date().toISOString(),
-    uptime: process.uptime(),
-    memory: process.memoryUsage(),
-    database: dbHealth,
-    redis: require("./config/redis").redisClient?.isReady ? "connected" : "disconnected",
-  });
+  try {
+    res.status(200).json({
+      success: true,
+      status: "healthy",
+      timestamp: new Date().toISOString(),
+      uptime: process.uptime(),
+      service: "UpSkill Backend"
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      status: "unhealthy",
+      error: error.message
+    });
+  }
 });
 
 // Graceful Shutdown
