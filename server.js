@@ -322,6 +322,21 @@ app.get('/health', (req, res) => {
   });
 });
 
+app.get("/health-render", async (req, res) => {
+  const { checkDBHealth } = require("./config/database");
+  const dbHealth = await checkDBHealth();
+
+  res.json({
+    success: true,
+    status: "healthy",
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(),
+    memory: process.memoryUsage(),
+    database: dbHealth,
+    redis: require("./config/redis").redisClient?.isReady ? "connected" : "disconnected",
+  });
+});
+
 // Graceful Shutdown
 const gracefulShutdown = (signal) => {
   console.log(`\n${signal} received. Shutting down gracefully...`);
